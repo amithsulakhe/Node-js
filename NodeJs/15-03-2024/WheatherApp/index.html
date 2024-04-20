@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <title>Wheather App</title>
+    <script src="https://kit.fontawesome.com/8774629e76.js" crossorigin="anonymous"></script>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+    .container .child-container {
+      width: 20%;
+      height: 500px;
+      padding: 20px;
+      border-radius: 20px;
+      background-color: skyblue;
+      /* position: relative; */
+
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 5px;
+      align-items: center;
+    }
+    .container .child-container .icon-main {
+      font-size: 80px;
+      color: rgb(192, 169, 39);
+      margin-top: 50px;
+    }
+    .container .child-container .main-city-container {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+    }
+    /* .rotating-circle-1 {
+      width: 500px;
+      height: 500px;
+      background: rgb(255, 245, 245);
+      position: absolute;
+      border-radius: 50%;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.5;
+      animation: rotate 5s linear infinite forwards;
+    }
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(90deg);
+      }
+      50% {
+        transform: rotate(180deg);
+      }
+      75% {
+        transform: rotate(270deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .rotating-circle-2 {
+      width: 500px;
+      height: 500px;
+      animation: rotate 5s linear infinite forwards;
+
+      background: rgb(234, 224, 224);
+      position: absolute;
+      border-radius: 50%;
+      top: 90%;
+      left: 50%;
+      opacity: 0.5;
+      transform: translate(-50%, -50%);
+    }
+    .main-city-container .actual-temp,
+    .main-city-container .city-container {
+      position: relative;
+    } */
+  </style>
+  <body>
+    <div class="container">
+      <div class="child-container">
+        <div class="icon-main">
+          <i class="fa-solid fa-sun"></i>
+        </div>
+        <div class="main-city-container">
+          <!-- <div class="rotating-circle-1"></div>
+          <div class="rotating-circle-2"></div> -->
+
+          <div class="city-container">
+            <h2>{%location%}</h2>
+            <h4 class="full-date">WED | OCT 24 |10:49AM</h4>
+          </div>
+          <div class="temp-container">
+            <div class="actual-temp">
+              <h2>{%tempVal%}&deg;C</h2>
+              <h4>MIN {%tempMin%}&deg;C|MAX {%tempMax%}&deg;C</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const fullDate = document.querySelector(".full-date");
+    function getDay() {
+      const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+      const month = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
+      const now = new Date();
+      const presentDay = now.getDay();
+      const presentYear = now.getFullYear();
+      const presentMonth = now.getMonth();
+      return `${days[presentDay]} | ${month[presentMonth]} ${presentYear}`;
+    }
+    fullDate.innerHTML = getDay() + " | " + "10:49Am";
+    console.log(getDay());
+  </script>
+</html>
